@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
 	<div class="card-header">
-		<h6 class="text-dark font-weight-bold m-0">Ganti Password</h6>
+		<h6 class="text-dark font-weight-bold m-0">Change Password</h6>
 	</div>
 	<div class="card-body">
 		<div class="form-group">
@@ -22,7 +22,7 @@
 				<input type="password" name="new_password" id="new_password" class="form-control form-control-sm" autocomplete="off">
 			</div>
 			<div class="form-group">
-				<label for="" class="small font-weight-bold">New Password</label>
+				<label for="" class="small font-weight-bold">Confirm New Password</label>
 				<input type="password" name="new_password_confirmation" id="new_password_confirmation" class="form-control form-control-sm" autocomplete="off">
 			</div>
 			<div class="form-group">
