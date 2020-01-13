@@ -12,6 +12,9 @@
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
+    {{-- DataTables --}}
+    <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css">
+
     {{-- Custom font google roboto --}}
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
@@ -20,6 +23,14 @@
     <style>
         * {
             font-family: 'Roboto', sans-serif;
+        }
+        html,body,
+        .nav-item .nav-link span,
+        span.text-danger {
+            font-size: 14px !important;
+        }
+        html, body {
+          color: #3E3E3E;
         }
     </style>
 </head>
@@ -183,6 +194,8 @@
 
     <script src="{{ asset('js/jquery.blockUI.js') }}"></script>
     <script src="{{ asset('js/sweetalert2.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.js') }}"></script>
 
     <script>
         $(document).ready(function() {

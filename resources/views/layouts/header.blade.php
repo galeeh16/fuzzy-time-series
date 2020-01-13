@@ -24,6 +24,10 @@
         * {
             font-family: 'Roboto', sans-serif;
         }
+        html,body,
+        .nav-item .nav-link span {
+            font-size: 14px !important;
+        }
     </style>
 </head>
 <body>

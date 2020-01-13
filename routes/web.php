@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'HomeController@profile')->name('profile')->middleware('auth');
 Route::get('/ganti-password/{user}', 'HomeController@changePassword')->name('ganti-password')->middleware('auth');
 Route::put('ganti-password/{id}', 'HomeController@updatePassword')->name('update-password')->middleware('auth');
+Route::resource('user', 'UserController');
