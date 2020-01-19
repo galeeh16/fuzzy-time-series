@@ -23,3 +23,4 @@ Route::get('/profile', 'HomeController@profile')->name('profile')->middleware('a
 Route::get('/ganti-password/{user}', 'HomeController@changePassword')->name('ganti-password')->middleware('auth');
 Route::put('ganti-password/{id}', 'HomeController@updatePassword')->name('update-password')->middleware('auth');
 Route::resource('user', 'UserController');
+Route::get('fuzzy', 'FuzzyController@index');
