@@ -14,7 +14,7 @@
 			@method('PUT')
 			<div class="row">
 				<div class="col-12">
-					<input type="text" name="username2" id="username2" value="{{ $user->username }}">
+					<input type="hidden" name="username2" id="username2" value="{{ $user->username }}">
 					<div class="form-group">
 						<label class="font-weight-bold" for="username">Username <sup class="text-danger">*</sup></label>
 						<input type="text" name="username" id="username" class="form-control" autocomplete="off" value="{{ $user->username }}">
@@ -29,6 +29,10 @@
 							<option value="Admin" @if($user->level == 'Admin') selected @endif>Admin</option>
 							<option value="Member" @if($user->level == 'Member') selected @endif>Member</option>
 						</select>
+					</div>
+					<div class="form-group">
+						<label class="font-weight-bold" for="phone">Phone</label>
+						<input type="text" name="phone" id="phone" class="form-control" autocomplete="off" value="{{ $user->phone }}">
 					</div>
 					<div class="form-group">
 						<label class="font-weight-bold" for="address">Address</label>

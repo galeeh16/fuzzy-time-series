@@ -51,7 +51,7 @@
 					<form action="" method="POST" id="form-hapus">
 						@csrf
 						@method('DELETE')
-						<input type="text" name="id_hapus" id="id_hapus">
+						<input type="hidden" name="id_hapus" id="id_hapus">
 					</form>
 					<button type="button" class="btn btn-danger mr-2" data-dismiss="modal">Batal</button>
 					<button type="button" class="btn btn-primary" id="btn-confirm-delete">Hapus</button>
@@ -90,6 +90,7 @@
 					$.unblockUI();
 				},
 				success: function(response) {
+					$('#modalDelete').modal('hide');
 					if(response.status == 200) {
 						Swal.fire(
 						  	'',

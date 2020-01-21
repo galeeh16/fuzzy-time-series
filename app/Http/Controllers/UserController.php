@@ -44,7 +44,8 @@ class UserController extends Controller
             'password' => 'required|min:5|max:255',
             'password_confirmation' => 'required|min:5|max:255|same:password',
             'name' => 'required|string|max:255',
-            'level' => 'required'
+            'level' => 'required',
+            'phone' => 'sometimes'
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -59,7 +60,8 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
                 'name' => $request->name,
                 'address' => $request->address,
-                'level' => $request->level
+                'level' => $request->level,
+                'phone' => $request->phone,
             ]);
         } catch (\Exception $e) {
             return response()->json($e->getMessage(), 500);
@@ -103,7 +105,8 @@ class UserController extends Controller
         $rules = [
             'username' => $request->username == $request->username2 ? 'required' : 'required|unique:users',
             'name' => 'required',
-            'address' => 'sometimes'
+            'address' => 'sometimes',
+            'phone' => 'sometimes',
         ];
 
         $validate = Validator::make($request->all(), $rules);
@@ -116,7 +119,8 @@ class UserController extends Controller
                         ->update([
                             'username' => $request->username,
                             'name' => $request->name,
-                            'address' => $request->address
+                            'address' => $request->address,
+                            'phone' => $request->phone,
                         ]);
             if($user) {
                 return response()->json(['msg' => 'Berhasil mengubah data', 'status' => 200], 200);
