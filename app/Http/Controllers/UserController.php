@@ -87,7 +87,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', '=', $id)->firstOrFail();
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -99,7 +100,30 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'username' => $request->username == $request->username2 ? 'required' : 'required|unique:users',
+            'name' => 'required',
+            'address' => 'sometimes'
+        ];
+
+        $validate = Validator::make($request->all(), $rules);
+        if($validate->fails()) {
+            return response()->json($validate->messages(), 400);
+        }
+
+        try {
+            $user = User::where('id', '=', $id)
+                        ->update([
+                            'username' => $request->username,
+                            'name' => $request->name,
+                            'address' => $request->address
+                        ]);
+            if($user) {
+                return response()->json(['msg' => 'Berhasil mengubah data', 'status' => 200], 200);
+            }
+        } catch (\Exception $e) {
+            return response()->json($e->getMessage(), 500);
+        }
     }
 
     /**
@@ -110,6 +134,15 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::where('id', '=', $id)->first();
+        try {
+            if($user->delete()) {
+                return response()->json(['msg' => 'Berhasil menghapus user', 'status' => 200, 'type' => 'success'], 200);
+            } else {
+                return response()->json(['msg' => 'Gagal menghapus user', 'status' => 200, 'type' => 'error'], 200);
+            }
+        } catch (\Exception $e) {
+            return response()->json($e->getMessage(), 500);
+        }
     }
 }

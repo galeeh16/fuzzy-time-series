@@ -64,6 +64,11 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
+        <a class="nav-link" href="{{ url('user') }}">
+          <i class="fas fa-fw fa-home"></i>
+          <span>User</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
           <span>Components</span>

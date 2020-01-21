@@ -79,8 +79,8 @@ class FuzzyController extends Controller
     	
     	// Membagi data berdasarkan jumlah dan lebar interval 
     	$nilai_tengah = array();
-    	$awal = 174706;
-    	$temp = 174706;
+    	$awal = $data[0]['jumlah_penduduk'];
+    	$temp = $data[0]['jumlah_penduduk'];
 
     	echo '<b>Langkah selanjutnya adalah membagi data berdasarkan jumlah dan lebar interval.</b><br>';
     	
@@ -93,9 +93,36 @@ class FuzzyController extends Controller
     		array_push($nilai_tengah, $hitung);
     	}
 
-    	
+        echo "<pre>";
+        print_r($nilai_tengah);
+        echo "</pre>";
+
     	// Menentukan fuzzy logic relationship (FLR) 
     	echo '<br><b>Menentukan Fuzzy Logic Relationship(FLR)</b><br>';
+        $flr = array();
+        $counter = 0;
+
+        $awalan = $data[0]['jumlah_penduduk'] + $lebar_interval;
+        foreach ($data as $key => $row) {
+            for ($i=0; $i < count($nilai_tengah); $i++) {
+                
+            }
+            // if($row['jumlah_penduduk'] <= ($nilai_tengah[0] + $lebar_interval)) {
+            //     echo $row['jumlah_penduduk'] ." A1".'<br>';
+            // } else if($row['jumlah_penduduk'] <= ($nilai_tengah[1] + $lebar_interval)) {
+            //     echo $row['jumlah_penduduk'] ." A2".'<br>';
+            // } else if($row['jumlah_penduduk'] <= ($nilai_tengah[2] + $lebar_interval)) {
+            //     echo $row['jumlah_penduduk']. " A3".'<br>';
+            // } else if($row['jumlah_penduduk'] <= ($nilai_tengah[3] + $lebar_interval)) {
+            //     echo $row['jumlah_penduduk']. " A4".'<br>';
+            // } else if($row['jumlah_penduduk'] <= ($nilai_tengah[4] + $lebar_interval)) {
+            //     echo $row['jumlah_penduduk']. " A5".'<br>';
+            // }
+        }
+
+        echo "<pre>";
+        print_r($flr);
+
     	echo "<br><br><br><br>";
     	echo "<br><br><br><br>";
     	echo "<br><br><br><br>";
@@ -103,4 +130,6 @@ class FuzzyController extends Controller
     	echo "<br><br><br><br>";
 
     }
+
+
 }
